@@ -590,8 +590,16 @@ CLOSED: [2019-12-20 五 20:48]
 
 *** TODO 解决第一次编译出现的问题:
 
-** TODO 先判断整个项目没有问题                                                 :linux:
-*** TODO 使用make编译项目
+** DONE 先判断整个项目没有问题                                                 :linux:
+CLOSED: [2019-12-27 五 15:36]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-27 五 15:36]
+:END:
+*** DONE 使用make编译项目
+CLOSED: [2019-12-27 五 15:36]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-27 五 15:36]
+:END:
 
 **** DONE 解决/usr/include/gstreamer-1.0/gst/gst.h:29:10: fatal error: gst/glib-compat.h: 没有那个文件或目录  #include <gst/glib-compat.h>
 CLOSED: [2019-12-27 五 15:23]
@@ -606,9 +614,18 @@ CLOSED: [2019-12-27 五 15:23]
   解决了报错问题
 :END:
 
-**** TODO 函数未定义
+**** DONE 函数未定义
+CLOSED: [2019-12-27 五 15:36]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-27 五 15:36]
+:END:
 
-***** TODO 使用//TODO注销 第一次
+***** USEFULL 使用//TODO注销 第一次
+CLOSED: [2019-12-27 五 15:36]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2019-12-27 五 15:36] \\
+  解决了一部分报错
+:END:
 /tmp/cccm7iKr.o：在函数‘load_medialib’中：
 db.c:(.text+0x199)：对‘link_del_all’未定义的引用
 /tmp/cc7esrEN.o：在函数‘create_diaMedialib’中：
@@ -661,6 +678,7 @@ collect2: error: ld returned 1 exit status
 ** TODO 添加功能
 *** TODO 登录
 : 将g登录安装在最首行
+
 **** TODO 查看最首行的安排位置和逻辑
 **** TODO 添加
 *** TODO 有部分代码是注销了的 加上 

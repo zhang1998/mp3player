@@ -22,6 +22,9 @@ GtkWidget *create_winMain (InterFace *ui)
    menubar = gtk_menu_bar_new ();
    gtk_widget_show (menubar);
    gtk_box_pack_start (GTK_BOX (vbMain), menubar, FALSE, FALSE, 0);
+   
+   
+   
    GtkWidget *miFile;
    miFile = gtk_menu_item_new_with_mnemonic("文件(_F)");
    gtk_widget_show (miFile);
