@@ -1,6 +1,19 @@
 #+Title 这是本项目的导航和主要文件
 
 
+* 我的忽略目录
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+/pdf资料/
+/ui参考/
+/可参考源代码/
+/mycode/frombook/Debug/
+/mycode/frombook/demo
+/mycode/.metadata/
 
 * TODO [#B] 按照课/本进行练习                                                   :linux:
 SCHEDULED: <2019-12-13 五>
