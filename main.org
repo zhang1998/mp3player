@@ -29,9 +29,14 @@ CLOSED: [2019-12-16 一 14:25] SCHEDULED: <2019-12-14 六>
 2. [ ] 对话框的活动区域
 3. [ ]
 
-** DONE [#A] 先判断整个项目没有问题                                            :linux:
-CLOSED: [2019-12-27 五 10:43] SCHEDULED: <2019-12-16 一>
+** CANCELLED [#A] 先判断整个项目没有问题                                       :linux:
+CLOSED: [2019-12-27 五 15:22] SCHEDULED: <2019-12-16 一>
 :LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2019-12-27 五 15:22] \\
+  因为误删除 导致版本发生变更
+  是git的问题
+  所以暂停从新开始
+- State "NEXT"       from "DONE"       [2019-12-27 五 15:22]
 - State "DONE"       from "TODO"       [2019-12-27 五 10:43]
 :END:
 
@@ -446,9 +451,9 @@ CLOSED: [2019-12-27 五 10:16]
 4. [ ] main_core.c:(.text+0xbd)：对‘general_volume’未定义的引用
 5. [ ] main_core.c:(.text+0xca)：对‘general_mute’未定义的引用
 6. [ ] main_core.c:(.text+0x14a)：对‘request_volume’未定义的引用
-*** USEFULL 快速解决
-CLOSED: [2019-12-27 五 10:42]
+*** TODO 快速解决
 :LOGBOOK:
+- State "TODO"       from "USEFULL"    [2019-12-27 五 15:16]
 - State "USEFULL"    from "DONE"       [2019-12-27 五 10:43] \\
   能够使用makefile编译了
 - State "DONE"       from "TODO"       [2019-12-27 五 10:42]
@@ -461,7 +466,6 @@ Project->Properties->C/C++ Build->Settings->GCC C++ Linker->Libraries
    1. [X] 做了一点 但是不知道效果如何
 3. [ ] 但是Libraries search path(-L)中要填写的不是路径么？那crypto的路径是什么？
 ****** TODO 解决找不到 -lcrypto	frombook		        C/C++ Problem
-
 
 *** TODO 解决未定义的问题
 **** DONE 解决几个函数问题:interface.c
@@ -585,6 +589,74 @@ CLOSED: [2019-12-20 五 20:48]
 *** TODO 解决问题： no link 结构体
 
 *** TODO 解决第一次编译出现的问题:
+
+** TODO 先判断整个项目没有问题                                                 :linux:
+*** TODO 使用make编译项目
+
+**** DONE 解决/usr/include/gstreamer-1.0/gst/gst.h:29:10: fatal error: gst/glib-compat.h: 没有那个文件或目录  #include <gst/glib-compat.h>
+CLOSED: [2019-12-27 五 15:23]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-27 五 15:23]
+:END:
+
+***** USEFULL 添加-I解决
+CLOSED: [2019-12-27 五 15:23]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2019-12-27 五 15:23] \\
+  解决了报错问题
+:END:
+
+**** TODO 函数未定义
+
+***** TODO 使用//TODO注销 第一次
+/tmp/cccm7iKr.o：在函数‘load_medialib’中：
+db.c:(.text+0x199)：对‘link_del_all’未定义的引用
+/tmp/cc7esrEN.o：在函数‘create_diaMedialib’中：
+interface.c:(.text+0x2626)：对‘on_tlbAdddir_clicked’未定义的引用
+/tmp/cceqcIaa.o：在函数‘main’中：
+main.c:(.text+0x13c)：对‘link_del_all’未定义的引用
+main.c:(.text+0x14d)：对‘link_del_all’未定义的引用
+/tmp/cc0ek7jx.o：在函数‘main_core’中：
+main_core.c:(.text+0x161)：对‘treeClass_data’未定义的引用
+collect2: error: ld returned 1 exit status
+./run.sh: 行 3: ./demo: 没有那个文件或目录
+
+***** USEFULL 使用//TODO注销 第一次
+CLOSED: [2019-12-27 五 15:31]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2019-12-27 五 15:31] \\
+  起到了一定作用
+:END:
+/tmp/ccszG2dR.o：在函数‘load_medialib’中：
+db.c:(.text+0x199)：对‘link_del_all’未定义的引用
+/tmp/ccAZNvzs.o：在函数‘create_diaMedialib’中：
+interface.c:(.text+0x2626)：对‘on_tlbAdddir_clicked’未定义的引用
+/tmp/ccguPP24.o：在函数‘main’中：
+main.c:(.text+0x13c)：对‘link_del_all’未定义的引用
+main.c:(.text+0x14d)：对‘link_del_all’未定义的引用
+/tmp/ccoeVZYI.o：在函数‘main_core’中：
+main_core.c:(.text+0xbd)：对‘general_volume’未定义的引用
+main_core.c:(.text+0xca)：对‘general_mute’未定义的引用
+main_core.c:(.text+0x14a)：对‘request_volume’未定义的引用
+main_core.c:(.text+0x1a8)：对‘medialib_ui_show’未定义的引用
+main_core.c:(.text+0x1c8)：对‘treeClass_data’未定义的引用
+main_core.c:(.text+0x1e3)：对‘treeMedialib_data’未定义的引用
+main_core.c:(.text+0x203)：对‘medialib_add’未定义的引用
+main_core.c:(.text+0x223)：对‘medialib_add_dir’未定义的引用
+main_core.c:(.text+0x243)：对‘medialib_del_all’未定义的引用
+main_core.c:(.text+0x263)：对‘medialib_search’未定义的引用
+main_core.c:(.text+0x283)：对‘medialib_sendto’未定义的引用
+main_core.c:(.text+0x2a3)：对‘medialib_find’未定义的引用
+main_core.c:(.text+0x2c3)：对‘playlist_ui_show’未定义的引用
+main_core.c:(.text+0x2e3)：对‘treePlaylist_data’未定义的引用
+main_core.c:(.text+0x303)：对‘playlist_add’未定义的引用
+main_core.c:(.text+0x323)：对‘playlist_add_dir’未定义的引用
+main_core.c:(.text+0x340)：对‘playlist_open’未定义的引用
+main_core.c:(.text+0x35d)：对‘playlist_save’未定义的引用
+main_core.c:(.text+0x37a)：对‘playlist_del’未定义的引用
+main_core.c:(.text+0x397)：对‘playlist_del_all’未定义的引用
+collect2: error: ld returned 1 exit status
+./run.sh: 行 3: ./demo: 没有那个文件或目录
 
 ** TODO 添加功能
 *** TODO 登录
