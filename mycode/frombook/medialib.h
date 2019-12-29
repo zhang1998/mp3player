@@ -1,7 +1,5 @@
 #ifndef MEDIALIB_H_
-
 #define MEDIALIB_H_
-
 #define MAX_TITLE_LENGTH 512
 #define MAX_ATRIST_LENGTH 512
 #define MAX_ALBUM_LENGTH 256

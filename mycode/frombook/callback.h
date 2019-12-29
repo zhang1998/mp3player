@@ -2,6 +2,12 @@
 
 #ifndef CALLBACK_H_
 #define CALLBACK_H_
+
+void on_button_login_2_clicked(GtkWidget *button_login,
+                               InterFace *ui);
+
+void button_home_zc_login(GtkWidget *button_login,
+                          InterFace *ui);
 void on_btVolume_clicked(GtkWidget *btVolume,
 		                   InterFace *ui);
 void on_btPlaylist_clicked(GtkWidget *btPlaylist,
@@ -44,5 +50,10 @@ void on_tbtDelall_clicked(GtkWidget *tbtDelall,
 
 void on_cbbMode_active(GtkWidget *cbbMode,
 							InterFace *ui);
+void on_button_login_clicked(GtkWidget *btVolume,
+                             InterFace *ui);
+
+void on_button_login_1_clicked(GtkWidget *button_login,
+                               InterFace *ui);
 
 #endif /* CALLBACK_H_ */

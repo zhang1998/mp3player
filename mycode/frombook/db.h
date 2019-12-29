@@ -8,5 +8,6 @@ int load_medialib(link_t *mlink, _find_cond order);
 int medialib_insert(node_t *mnode);
 int medialib_delete(node_t *mnode);
 int medialib_delete_all(void);
+
 #endif /* DB_H_ */
 

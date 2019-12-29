@@ -38,7 +38,10 @@ int main(int argc, char *argv[])
 	main_core(GENERAL_PLAYLIST_INIT, &plink);
 	gtk_init(&argc, &argv);
 	InterFace ui;
-	ui.winMain = create_winMain(&ui);
+     	ui.winMain = create_winMain(&ui);
+
+        ui.window_zc=create_logwindow(&ui);
+        ui.window_zc_1=create_logwindow(&ui);
 	ui.diaMedialib = create_diaMedialib(&ui);
 	ui.diaPlaylist = create_diaPlaylist(&ui);
 	ui.diaVolume = create_diaVolume(&ui);

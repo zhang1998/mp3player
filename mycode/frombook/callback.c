@@ -8,6 +8,49 @@
 #include "main_core.h"
 #include "medialib.h"
 
+
+//on_button_login_2_clicked  登录按键的处理
+void on_button_login_2_clicked(GtkWidget *button_login,
+		                   InterFace *ui)
+{
+  //tod
+}
+void button_home_zc_login(GtkWidget *button_login,
+		                   InterFace *ui)
+{
+  gtk_widget_show(ui->window_zc_1);
+}
+//on_button_login_clicked的登录
+
+
+
+void on_button_login_clicked(GtkWidget *button_login,
+		                   InterFace *ui)
+{
+  //		gtk_widget_hide(ui->window_zc);
+  
+		gtk_widget_show(ui->window_zc);
+  
+
+}
+//注册
+void on_button_login_1_clicked(GtkWidget *button_login_1,
+		                   InterFace *ui)
+{
+  /*
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btVolume)))
+		gtk_widget_show(ui->diaVolume);
+	else
+		gtk_widget_hide(ui->diaVolume);
+
+  */
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btVolume)))
+		gtk_widget_show(ui->diaVolume);
+	else
+		gtk_widget_hide(ui->diaVolume);
+  
+  
+}
 void on_btVolume_clicked(GtkWidget *btVolume,
 		                   InterFace *ui)
 {
@@ -15,7 +58,13 @@ void on_btVolume_clicked(GtkWidget *btVolume,
 		gtk_widget_show(ui->diaVolume);
 	else
 		gtk_widget_hide(ui->diaVolume);
+
+
+        
 }
+
+
+
 
 void on_btPlaylist_clicked(GtkWidget *btPlaylist,
                            InterFace *ui)

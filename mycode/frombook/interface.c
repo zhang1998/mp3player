@@ -1,6 +1,5 @@
 ﻿#include <gtk-2.0/gtk/gtk.h>
 #include <gtk-2.0/gtk/gtkwidget.h>
-
 #include <glib-2.0/glib.h>
 #include "interface.h"
 #include "callback.h"
@@ -18,11 +17,38 @@ GtkWidget *create_winMain (InterFace *ui)
    gtk_widget_show (vbMain);
    gtk_container_add (GTK_CONTAINER (winMain), vbMain);
 
+   //定义顶层工具栏
+   GtkWidget *vbHead;
+   vbHead = gtk_hbox_new (FALSE, 0);
+   gtk_widget_show (vbHead);
+   gtk_box_pack_start (GTK_BOX (vbMain), vbHead, TRUE, TRUE, 0);
+   
+
+   /*
+   GtkWidget *hbState;
+   hbState = gtk_hbox_new (FALSE, 0);
+   gtk_widget_show (hbState);
+   gtk_box_pack_start (GTK_BOX (vbMain), hbState
+    */
+
    GtkWidget *menubar;
    menubar = gtk_menu_bar_new ();
    gtk_widget_show (menubar);
-   gtk_box_pack_start (GTK_BOX (vbMain), menubar, FALSE, FALSE, 0);
-   
+   gtk_box_pack_start (GTK_BOX (vbHead), menubar, FALSE, FALSE, 0);
+   //button_login 测试第一次
+   GtkWidget *button_login=gtk_button_new_with_label("登录");
+   gtk_widget_show (button_login);
+   gtk_box_pack_start (GTK_BOX (vbHead), button_login, FALSE, FALSE, 0);
+
+
+   //button login 测试第二次
+   GtkWidget *button_login_1;
+   button_login_1 = gtk_button_new_with_mnemonic ("注册");
+   gtk_widget_show (button_login_1);
+   gtk_box_pack_start (GTK_BOX (vbHead), button_login_1, FALSE, FALSE, 0);
+   gtk_widget_set_size_request (button_login_1, 60, 29);
+   //login页面
+
    
    
    GtkWidget *miFile;
@@ -242,6 +268,9 @@ GtkWidget *create_winMain (InterFace *ui)
    g_signal_connect ((gpointer) btPlaylist, "clicked",
                      G_CALLBACK (on_btPlaylist_clicked),
                      ui);
+   g_signal_connect ((gpointer) button_login_1, "clicked",
+                     G_CALLBACK (on_button_login_1_clicked),
+                     ui);
    g_signal_connect ((gpointer) btMedialib, "clicked",
                      G_CALLBACK (on_btMedialib_clicked),
                      ui);
@@ -251,6 +280,122 @@ GtkWidget *create_winMain (InterFace *ui)
 
 
    return winMain;
+}
+GtkWidget *create_logwindow_1(InterFace *ui)
+{
+  GtkWidget *window_zc_1;// 注册之后的跳转窗口
+  window_zc_1=gtk_window_new(GTK_WINDOW_POPUP);
+  gtk_window_set_title(GTK_WINDOW(window_zc_1),"注册用户");
+
+     GtkWidget *vb_Main_zc_1;
+     vb_Main_zc_1 = gtk_vbox_new (FALSE, 0);
+     gtk_widget_show (vb_Main_zc_1);
+     gtk_container_add (GTK_CONTAINER (window_zc_1), vb_Main_zc_1);
+
+
+     GtkWidget *entry = gtk_entry_new();						// 创建文本输入构件
+         gtk_widget_show(entry);
+         gtk_box_pack_start(GTK_CONTAINER(vb_Main_zc_1),entry,FALSE,FALSE,0);
+         gtk_entry_set_max_length(GTK_ENTRY (entry), 12);
+                                             // 设置文本输入构件接纳文本最大长度
+
+         gtk_entry_set_text(GTK_ENTRY(entry), "请输入手机号");
+         // 修改文本输入构件中的文本
+
+
+         GtkWidget *entry_1 = gtk_entry_new();						// 创建文本输入构件
+         gtk_widget_show(entry_1);
+         gtk_box_pack_start(GTK_CONTAINER(vb_Main_zc_1),entry,FALSE,FALSE,0);
+         gtk_entry_set_max_length(GTK_ENTRY (entry), 50);
+                                             // 设置文本输入构件接纳文本最大长度
+
+         gtk_entry_set_text(GTK_ENTRY(entry), "请输入密码");
+
+
+              GtkWidget *vb_Main_zc_1_1;
+              vb_Main_zc_1_1 = gtk_hbox_new (FALSE, 0);
+              gtk_widget_show (vb_Main_zc_1_1);
+              gtk_box_pack_start(GTK_BOX (vb_Main_zc_1), vb_Main_zc_1_1,FALSE,FALSE,0);
+              
+
+         //复选框
+
+                    GtkWidget *radio_button=gtk_radio_button_new_with_mnemonic(NULL,"选项1");
+                    gtk_widget_show(radio_button);
+                    gtk_box_pack_start(GTK_BOX(vb_Main_zc_1_1),radio_button,FALSE,FALSE,0);
+
+
+                    
+                    GtkWidget *label_show_login_choose=gtk_label_new("自动登录");
+                    gtk_widget_show(label_show_login_choose);
+                    gtk_box_pack_start(GTK_BOX(vb_Main_zc_1_1),label_show_login_choose,FALSE,FALSE,0);
+                    
+              GtkWidget *button_home_zc_login=gtk_button_new_with_label("注册");
+              gtk_widget_show(button_home_zc_login);
+              gtk_box_pack_start(GTK_BOX(vb_Main_zc_1),button_home_zc_login,FALSE,FALSE,0);
+             gtk_widget_grab_default (window_zc_1);
+
+             //信号的处理了
+             g_signal_connect ((gpointer) button_home_zc_login, "active",
+                        G_CALLBACK (on_cbbMode_active),
+                        ui);
+
+             
+             return window_zc_1;
+
+                    
+}
+GtkWidget *create_logwindow(InterFace *ui)
+{
+  GtkWidget *window_zc;
+  window_zc = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window_zc), "媒体播放器");
+
+     GtkWidget *vb_Main_zc;
+     vb_Main_zc = gtk_vbox_new (FALSE, 0);
+     gtk_widget_show (vb_Main_zc);
+     gtk_container_add (GTK_CONTAINER (window_zc), vb_Main_zc);
+
+         GtkWidget *logo_image=gtk_image_new_from_file("./image/logo_for_wangyi.png");
+         gtk_widget_show(logo_image);
+         gtk_box_pack_start (GTK_BOX (vb_Main_zc), logo_image, TRUE, TRUE, 0);
+
+
+         GtkWidget *button_login_1=gtk_button_new_with_label("手机号注册");
+         gtk_widget_show (button_login_1);
+         gtk_box_pack_start (GTK_BOX (vb_Main_zc), button_login_1, FALSE, FALSE, 0);
+
+
+         GtkWidget *button_login_2=gtk_button_new_with_label("登录");
+         gtk_widget_show (button_login_2);
+         gtk_box_pack_start (GTK_BOX (vb_Main_zc), button_login_2, FALSE, FALSE, 0);
+
+         GtkWidget *vb_four_button_zc;
+         vb_four_button_zc = gtk_hbox_new (FALSE, 0);
+         gtk_widget_show (vb_four_button_zc);
+         gtk_box_pack_start(GTK_BOX(vb_Main_zc),vb_four_button_zc, FALSE, FALSE, 0);
+
+              //测试
+
+         GtkWidget *button_qq_login_2=gtk_button_new();
+                gtk_widget_show (button_qq_login_2);
+              gtk_box_pack_start (GTK_BOX (vb_four_button_zc), button_qq_login_2, FALSE, FALSE, 0);
+
+
+             GtkWidget *qq_image = gtk_button_new();
+             qq_image = gtk_image_new_from_file("./image/qq_image.jpg");
+             gtk_image_set_from_file(qq_image,"./image/stand_pixel_four.jpg");
+             gtk_widget_show(qq_image);
+
+             gtk_container_add(GTK_CONTAINER(button_qq_login_2), qq_image);
+             //button_login_2 的登录跳转
+             g_signal_connect ((gpointer) button_login_2, "active",
+                        G_CALLBACK (on_button_login_2_clicked),
+                        ui);
+             
+
+             gtk_widget_grab_default (window_zc);
+             return window_zc;
 }
 
 GtkWidget *create_diaPlaylist (InterFace *ui)
@@ -515,9 +660,11 @@ GtkWidget *create_diaMedialib (InterFace *ui)
 
    g_signal_connect(G_OBJECT(diaMedialib), "delete_event",
    			        G_CALLBACK(gtk_widget_hide), NULL);
+   //button_login
 
    return diaMedialib;
 }
+
 
 GtkWidget *create_diaVolume (InterFace *ui)
 {
