@@ -8,13 +8,32 @@
 #include "main_core.h"
 #include "medialib.h"
 
-
+void on_button_zc_2_clicked(GtkWidget *button_login,
+		                   InterFace *ui)
+{
+  
+}
 //on_button_login_2_clicked  登录按键的处理
-void on_button_login_2_clicked(GtkWidget *button_login,
+//on_button_zc_from_phone_clicked :手机号注册
+
+void on_button_login_from_phone_clicked(GtkWidget *button_zc_from_phone,
+		                   InterFace *ui)
+{
+  
+  gtk_widget_show(ui->window_zc_1);
+  //window_zc_1
+  
+  
+}
+void on_button_login_3_clicked(GtkWidget *button_login,
 		                   InterFace *ui)
 {
   //tod
+  gtk_widget_show(ui->window_zc_1);
+  
 }
+
+
 void button_home_zc_login(GtkWidget *button_login,
 		                   InterFace *ui)
 {
@@ -29,26 +48,20 @@ void on_button_login_clicked(GtkWidget *button_login,
 {
   //		gtk_widget_hide(ui->window_zc);
   
-		gtk_widget_show(ui->window_zc);
+		gtk_widget_show(ui->window_login);
   
 
 }
 //注册
+//  
+//
 void on_button_login_1_clicked(GtkWidget *button_login_1,
 		                   InterFace *ui)
 {
-  /*
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btVolume)))
-		gtk_widget_show(ui->diaVolume);
-	else
-		gtk_widget_hide(ui->diaVolume);
-
-  */
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btVolume)))
-		gtk_widget_show(ui->diaVolume);
-	else
-		gtk_widget_hide(ui->diaVolume);
+  //		gtk_widget_show(ui->window_zc);
   
+  //  gtk_widget_show(ui->window_zc_1);
+
   
 }
 void on_btVolume_clicked(GtkWidget *btVolume,

@@ -819,7 +819,11 @@ CLOSED: [2019-12-28 六 21:31]
 :END:
 
 **** TODO 添加：登录界面的手机号注册实现
-***** TODO 登录页面的设计[2/4]
+***** DONE 登录页面的设计[3/3]
+CLOSED: [2019-12-29 日 22:17]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 22:17]
+:END:
 ****** DONE test输入框+预选文字
 CLOSED: [2019-12-29 日 10:54]
 :LOGBOOK:
@@ -853,7 +857,11 @@ CLOSED: [2019-12-29 日 10:57]
 - State "DONE"       from "TODO"       [2019-12-29 日 10:57]
 :END:
 
-****** TODO 实现图形
+****** DONE 实现图形
+CLOSED: [2019-12-29 日 22:17]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 22:17]
+:END:
 : 输入 之后 和文本进行比对 判断结果
 1. [ ] vbox
    1. [ ] text:请输入手机号
@@ -874,9 +882,22 @@ sqlite3 -init upgradeDB.sql test.db << EOF
 EOF
 
 
-***** TODO 页面跳转
+***** DONE 页面跳转
+CLOSED: [2019-12-29 日 22:32]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 22:32]
+:END:
+./interface.c:GtkWidget *create_diaPlaylist (InterFace *ui)
+./interface.c:   GtkWidget *diaPlaylist;
+./interface.c:   diaPlaylist = gtk_dialog_new ();
+./interface.c:   return diaPlaylist;
+
 ***** TODO 如何注册
 输入+手机号识别
+1. [ ] 可输入的文本
+2. [ ] 注册效果
+   1. [ ] 读取文本并存入db
+   2. [ ] 选项可选并记录:使用gdb
 **** USEFULL [[file:mycode/frombook/test/test_image_button.c][实现图片按钮 尝试1]]
 CLOSED: [2019-12-28 六 21:01]
 :LOGBOOK:

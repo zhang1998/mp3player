@@ -679,8 +679,282 @@ collect2: error: ld returned 1 exit status
 *** TODO 登录
 : 将g登录安装在最首行
 
-**** TODO 查看最首行的安排位置和逻辑
-**** TODO 添加
+现在有两个测试
+**** DONE 解决报错的问题
+CLOSED: [2019-12-28 六 18:35]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-28 六 18:35]
+:END:
+***** DONE 查看最首行的安排位置和逻辑
+CLOSED: [2019-12-27 五 15:49]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-27 五 15:49]
+:END:
+***** DONE 添加UI
+CLOSED: [2019-12-27 五 15:49]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-27 五 15:49]
+:END:
+***** CANCELLED 实现效果
+CLOSED: [2019-12-27 五 16:55]
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2019-12-27 五 16:55] \\
+  这个方案太混乱了
+:END:
+****** TODO 模仿代码里面的例子:点击播放列表
+btPlaylist
+******* TODO 两边测试
+******** TODO 登录
+(demo:3029): GLib-GObject-WARNING **: 16:35:36.360: invalid cast from 'GtkDialog' to 'GtkBox'
+
+(demo:3029): Gtk-CRITICAL **: 16:35:36.360: gtk_box_pack: assertion 'GTK_IS_BOX (box)' failed
+./run.sh: 行 4:  3029 段错误               (核心已转储) ./demo
+******** TODO 注册
+(DEMO:3098): GTK-CRITICAL **: 16:36:07.460: GTK_BOX_PACK: ASSERTION 'GTK_IS_BOX (BOX)' FAILED
+
+(DEMO:3098): GTK-CRITICAL **: 16:36:08.921: IA__GTK_TOGGLE_BUTTON_GET_ACTIVE: ASSERTION 'GTK_IS_TOGGLE_BUTTON (TOGGLE_BUTTON)' FAILED
+*****  CANCELLED 解决GTK_BOX_PACK: ASSERTION 'GTK_IS_BOX (BOX)' FAILED
+CLOSED: [2019-12-27 五 17:46]
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2019-12-27 五 17:46] \\
+  不知道如何解决
+:END:
+
+****** DONE 从新看box
+CLOSED: [2019-12-27 五 17:45]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-27 五 17:45]
+:END:
+****** TODO 百度
+****** TODO google
+****** TODO 从源代码开始
+****** TODO 从老师开始
+****** TODO 从自己开始
+***** DONE 解决第一个按键问题
+CLOSED: [2019-12-28 六 18:35]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-28 六 18:35]
+:END:
+ IA__gtk_widget_hide: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:11185): Gtk-CRITICAL **: 17:52:42.073: IA__gtk_toggle_button_get_active: assertion 'GTK_IS_TOGGLE_BUTTON (toggle_button)' failed
+
+
+****** TODO 是不是窗口的问题？
+******* TODO 调用按钮标签进行简单测试
+1. [ ]
+
+****** TODO 是不是实例化的问题？
+具体原因是：传递给gtk_widget_get_screen函数的window参数未实例化
+******* TODO 把虚拟部分创建了
+******* TODO 比照一下别的window 
+gtk_toggle_button_get_active
+
+***** USEFULL 修改所有声明 
+CLOSED: [2019-12-28 六 18:35]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2019-12-28 六 18:35] \\
+  能够通过按键实现窗口的隐藏了 算是初步实现了部分功能
+:END:
+1. [X] ./interface.c:576:GtkWidget *create_diaVolume (InterFace *ui)
+2. [X] ./interface.h:14:	GtkWidget *diaVolume;
+3. [X] ./interface.h:36:GtkWidget *create_diaVolume (InterFace *ui);
+4. [X] ./callback.c:25:		gtk_widget_hide(ui->diaVolume);
+   #+BEGIN_SRC 
+./callback.c:35:		gtk_widget_show(ui->diaVolume);
+./callback.c:37:		gtk_widget_hide(ui->diaVolume);
+./callback.c:41:		gtk_widget_show(ui->diaVolume);
+./callback.c:43:		gtk_widget_hide(ui->diaVolume);
+./callback.c:51:		gtk_widget_show(ui->diaVolume);
+./callback.c:53:		gtk_widget_hide(ui->diaVolume);
+
+   
+   #+END_SRC
+5. [X] ./main.c:46:	ui.diaVolume = create_diaVolume(&ui);
+***** TODO 解决两个问题
+
+****** TODO 是gtk_widget_hide?
+****** TODO 是IA__gtk_toggle_button_get_active?
+****** TODO assertion 'GTK_IS_TOGGLE_BUTTON (toggle_button)' failed
+****** 点击后
+IA__gtk_widget_hide: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:6336): Gtk-CRITICAL **: 17:46:55.893: IA__gtk_toggle_button_get_active: assertion 'GTK_IS_TOGGLE_BUTTON (toggle_button)' failed
+
+******  点击前
+                              ../../../../gobject/gsignal.c:2523: signal 'active' is invalid for instance '0x55dd660690f0' of type 'GtkComboBox'
+
+
+(demo:6336): GLib-GObject-WARNING **: 17:45:33.904: invalid cast from 'GtkDialog' to 'GtkBox'
+
+(demo:6336): Gtk-CRITICAL **: 17:45:33.904: gtk_box_pack: assertion 'GTK_IS_BOX (box)' failed
+
+***** TODO 新方案 逐项检查
+****** TODO 实验一下将老师的作品分开
+****** TODO 检查callback
+****** TODO 检查定义
+****** TODO 检查signal
+**** DONE 添加：按钮弹出选项
+CLOSED: [2019-12-28 六 18:37]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-28 六 18:37]
+:END:
+
+**** DONE 添加：登录界面雏形
+CLOSED: [2019-12-28 六 21:16]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-28 六 21:16]
+:END:
+1. [ ] vbMain
+   1. [ ] 按钮
+   2. [ ] 按钮
+   3. [ ] 图标
+   4. [ ] 标签
+   5. [ ] hv_zc
+      1. [ ] 四个图片按钮
+**** DONE 将登录添加到项目里面
+CLOSED: [2019-12-28 六 21:31]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-28 六 21:31]
+:END:
+
+**** TODO 添加：登录界面的手机号注册实现
+***** DONE 登录页面的设计[3/3]
+CLOSED: [2019-12-29 日 22:17]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 22:17]
+:END:
+****** DONE test输入框+预选文字
+CLOSED: [2019-12-29 日 10:54]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 10:54]
+:END:
+******* DONE 形式
+CLOSED: [2019-12-28 六 22:35]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-28 六 22:35]
+:END:
+******* DONE 修改
+CLOSED: [2019-12-29 日 10:53]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 10:53]
+:END:
+1. [X] 获得文本并写入数据库
+   要注意及时修改id
+
+
+******* USEFULL 弄明白调试方法
+CLOSED: [2019-12-29 日 10:01]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2019-12-29 日 10:01] \\
+  能进行简单的调试
+:END:
+gcc 加上 -g
+gdb  可执行文件
+****** DONE 查看db.h
+CLOSED: [2019-12-29 日 10:57]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 10:57]
+:END:
+
+****** DONE 实现图形
+CLOSED: [2019-12-29 日 22:17]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 22:17]
+:END:
+: 输入 之后 和文本进行比对 判断结果
+1. [ ] vbox
+   1. [ ] text:请输入手机号
+   2. [ ] text：请输入密码
+   3. [ ] 复选框+标签 自动登录
+   4. [ ] 登录
+***** USEFULL shell编写sqlite3 
+CLOSED: [2019-12-29 日 09:51]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2019-12-29 日 09:51] \\
+  能实现打印表 同理可操控其他内容
+:END:
+#!/bin/sh
+sqlite3 -init upgradeDB.sql test.db << EOF
+.table
+.quit
+
+EOF
+
+
+***** DONE 页面跳转
+CLOSED: [2019-12-29 日 22:32]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 22:32]
+:END:
+./interface.c:GtkWidget *create_diaPlaylist (InterFace *ui)
+./interface.c:   GtkWidget *diaPlaylist;
+./interface.c:   diaPlaylist = gtk_dialog_new ();
+./interface.c:   return diaPlaylist;
+
+***** TODO 如何注册
+输入+手机号识别
+1. [ ] 可输入的文本
+2. [ ] 注册效果
+   1. [ ] 读取文本并存入db
+   2. [ ] 选项可选并记录:使用gdb
+**** USEFULL [[file:mycode/frombook/test/test_image_button.c][实现图片按钮 尝试1]]
+CLOSED: [2019-12-28 六 21:01]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2019-12-28 六 21:01] \\
+  能够初步实现这个UI
+:END:
+***** 图片转换
+convert -resize 600×600 src.jpg dst.jpg
+***** 一篇博客教程
+GtkButton继承自GtkBin，所以，要想做image button，特简单。如果是只需要放上一个image的button，如下：
+
+GtkWidget *hbox, *playbtn, *pausebtn, *stopbtn, *placeholder, *dlabel;
+GtkWidget *playimg, *pauseimg, *stopimg;
+hbox = gltk_hbox_new(FALSE, 5);
+playbtn = gtk_button_new();
+pausebtn = gtk_button_new();
+stopbtn = gtk_button_new();
+
+playimg = gtk_image_new();
+gtk_image_set_from_stock(GTK_IMAGE(playimg), GTK_STOCK_MEDIA_PLAY, GTK_ICON_SIZE_LARGE_TOOLBAR);
+gtk_container_add(GTK_CONTAINER(playbtn), playimg);
+
+pauseimg = gtk_image_new();
+gtk_image_set_from_stock(GTK_IMAGE(pauseimg), GTK_STOCK_MEDIA_PAUSE, GTK_ICON_SIZE_LARGE_TOOLBAR);
+gtk_container_add(GTK_CONTAINER(pausebtn), pauseimg);
+
+stopimg = gtk_image_new();
+gtk_image_set_from_stock(GTK_IMAGE(stopimg), GTK_STOCK_MEDIA_STOP, GTK_ICON_SIZE_LARGE_TOOLBAR);
+gtk_container_add(GTK_CONTAINER(stopbtn), stopimg);
+
+placeholder = gtk_label_new("");
+dlabel = gtk_label_new("Hi, guys! My name is Transformer~");
+
+gtk_box_pack_start(GTK_BOX(hbox), playbtn, FALSE, FALSE, 5);
+gtk_box_pack_start(GTK_BOX(hbox), pausebtn, FALSE, FALSE, 5);
+gtk_box_pack_start(GTK_BOX(hbox), stopbtn, FALSE, FALSE, 5);
+gtk_box_pack_start(GTK_BOX(hbox), placeholder, TRUE, TRUE, 5);
+gtk_box_pack_start(GTK_BOX(hbox), dlabel, FALSE, FALSE, 5); 
+***** USEFULL 总结
+CLOSED: [2019-12-28 六 21:06]
+:LOGBOOK:
+- State "USEFULL"    from              [2019-12-28 六 21:06] \\
+  能够添加的方法
+:END:
+         GtkWidget *button_qq_login_2=gtk_button_new();
+                gtk_widget_show (button_qq_login_2);
+              gtk_box_pack_start (GTK_BOX (vb_four_button_zc), button_qq_login_2, FALSE, FALSE, 0);
+
+
+             GtkWidget *qq_image = gtk_button_new();
+             qq_image = gtk_image_new_from_file("./image/qq_image.jpg");
+             gtk_widget_show(qq_image);
+
+             gtk_container_add(GTK_CONTAINER(button_qq_login_2), qq_image);
+
+**** TODO 添加：
+
 *** TODO 有部分代码是注销了的 加上 
 : 直接搜索TODO
 *** TODO 2. [ ] 更加清晰 的页面导航 不断尝试不同方式
@@ -690,6 +964,7 @@ collect2: error: ld returned 1 exit status
 *** TODO 4. 如何更好的发掘音乐？
    1. [ ] 文本+爬虫 分析 作者的相似度
    2. [ ] 音乐频率中发现有趣的东西
+*** TODO 优化登录界面
 *** TODO 5. 使用更加丰富的记录方法 解决用户 老是听到相同音乐的难点
    1. [ ] 能够从歌单 电台 播放列表中 手动剥离 近期播放次数过多的音乐
 *** TODO 6. [ ] 节省空间
@@ -920,8 +1195,84 @@ CLOSED: [2019-12-10 二 20:23]
 主要列一些项目运营数据，像电商类项目，主要列下交易量、用户数、复购率等等。
 * TODO 总结内容[/]
 介绍团队中最主要的几个成员，写下他们的从业经验。
-* TODO 后续发展计划[0/6]
+* TODO 后续发展计划[1/9]
 列了近一年的目标，最好也写一下如何实现目标的一些规划。
+
+** DONE 更好的默认脚本
+CLOSED: [2019-12-29 日 10:42]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-29 日 10:42]
+:END:
+能够适应两种情况
+1. [X] 在test下的文件不断变化 需要及时输入
+2. [X] 在其他目录下的文件不变化 不需要输入
+
+将变量写入文件里面 当输入变量时候就修改文件 即可
+
+*** WAITING shell加强
+:LOGBOOK:
+- State "WAITING"    from "TODO"       [2019-12-29 日 10:42] \\
+  现在不需要 什么时候工作量非常大的时候再处理
+:END:
+通过时间来识别 一天只显示一次
+1. [ ] 第一次使用时候的教程: 使用创建文件来识别
+2. 
+
+
+**** 逻辑
+if 参数为空
+   直接执行命令
+if 参数不为空
+   设置文件内容
+   执行命令
+
+**** 资料
+#+BEGIN_SRC  shell 
+#!/bin/bash
+# version
+
+
+#!/bin/bash
+if [ ! -n "$1" ] ;then
+    echo "you have not input a word!"
+else
+    echo "the word you input is $1"
+fi
+
+
+function stop(){
+  # stop  the command
+  echo "Stop"
+}
+
+function start(){
+  # Start  the command
+  echo "start"
+}
+function start1(){
+echo "restart"
+}
+cmd=$1
+${cmd:-start}  //执行cmd
+
+$(cat ./tmp)
+
+    rm demo
+
+    run_gcc
+    # ./demo
+    gdb ./demo
+
+#+END_SRC
+
+** TODO 修改数据库 并查看的方法
+** TODO 整理所有的usefull标签
+
+** TODO 整理新的startprogramme
+1. [ ] 是否需要gtk
+2. [ ] 添加run.sh
+3. [ ] 添加 image文件库
+4. [ ] 添加test文件夹 添加单元测试的基本文件 
 
 ** TODO 项目模板提取
 ** TODO 设计可能的100个方案 现有程序的100个用法
@@ -957,7 +1308,7 @@ CLOSED: [2019-12-10 二 20:23]
 2. [ ] .interface 中声明通用结构体
 3. [ ] callback保存回调函数（signal 函数）
 4. [ ] include “”是自己写的
-5. [ ]
+5. [ ] 用字符的位置判断项目结构 然后照抄
 
 
 

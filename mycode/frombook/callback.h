@@ -2,9 +2,16 @@
 
 #ifndef CALLBACK_H_
 #define CALLBACK_H_
-
-void on_button_login_2_clicked(GtkWidget *button_login,
+//void on_button_login_1_clicked(GtkWidget *button_login_1,
+void on_button_login_from_phone_clicked(GtkWidget *button_zc_from_phone,
+                                        InterFace *ui);
+void on_button_login_1_clicked(GtkWidget *button_login_1,
                                InterFace *ui);
+
+void on_button_login_3_clicked(GtkWidget *button_login,
+                               InterFace *ui);
+void on_button_zc_2_clicked(GtkWidget *button_login,
+                            InterFace *ui);;
 
 void button_home_zc_login(GtkWidget *button_login,
                           InterFace *ui);
@@ -53,7 +60,5 @@ void on_cbbMode_active(GtkWidget *cbbMode,
 void on_button_login_clicked(GtkWidget *btVolume,
                              InterFace *ui);
 
-void on_button_login_1_clicked(GtkWidget *button_login,
-                               InterFace *ui);
 
 #endif /* CALLBACK_H_ */

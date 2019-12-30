@@ -7,7 +7,7 @@
 typedef struct _interface InterFace;
 struct _interface {
 	GtkWidget *winMain;
-        GtkWidget *window_zc;
+        GtkWidget *window_login;
         GtkWidget *window_zc_1;
         GtkWidget *vbMain;
 	GtkWidget *diaPlaylist;
@@ -36,6 +36,8 @@ GtkWidget *create_diaPlaylist (InterFace *ui);
 GtkWidget *create_diaMedialib (InterFace *ui);
 GtkWidget *create_diaVolume (InterFace *ui);
 GtkWidget *create_logwindow(InterFace *ui);
+GtkWidget *create_zc_window(InterFace *ui);
+
 GtkWidget *btVolume;
 
 int set_treeClass(InterFace *ui);

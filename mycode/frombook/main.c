@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
 	InterFace ui;
      	ui.winMain = create_winMain(&ui);
 
-        ui.window_zc=create_logwindow(&ui);
-        ui.window_zc_1=create_logwindow(&ui);
+        ui.window_login=create_logwindow(&ui);
+        ui.window_zc_1 = create_zc_window(&ui);
 	ui.diaMedialib = create_diaMedialib(&ui);
 	ui.diaPlaylist = create_diaPlaylist(&ui);
 	ui.diaVolume = create_diaVolume(&ui);
