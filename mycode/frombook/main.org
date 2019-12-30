@@ -675,8 +675,53 @@ main_core.c:(.text+0x397)：对‘playlist_del_all’未定义的引用
 collect2: error: ld returned 1 exit status
 ./run.sh: 行 3: ./demo: 没有那个文件或目录
 
-** TODO 添加功能
-*** TODO 登录
+** TODO 添加功能是
+*** TODO 添加登录功能
+**** DONE 有图形吗 有
+CLOSED: [2019-12-30 一 11:04]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 11:04]
+:END:
+**** DONE 调用测试按键进行隐藏 可用 
+CLOSED: [2019-12-30 一 13:02]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:02]
+:END:
+在main_wndow下使用测试按键调用 成功
+**** DONE 按键+隐藏
+CLOSED: [2019-12-30 一 13:10]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:10]
+:END:
+**** DONE 从登录按键跳转到图形登录
+CLOSED: [2019-12-30 一 13:10]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:10]
+:END:
+**** DONE 实现可选的按钮
+CLOSED: [2019-12-30 一 13:33]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:33]
+:END:
+**** TODO 登录的数据库
+***** TODO 表格的设计
+登录比对表
+|phone_number|qq_number|password|
+远程登录无法测试  直接从本地进行测试吧
+
+本地数据表
+|phone_number|qq_number|password|need_autologin|
+
+***** TODO 实现具体功能
+1. [ ] 获取text
+2. [ ] 并与数据库本地数据表内容进行比对
+
+*** CANCELLED 登录
+CLOSED: [2019-12-30 一 11:00]
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2019-12-30 一 11:00] \\
+  出现问题 代码混乱 从新处理之后 暂时终止
+:END:
 : 将g登录安装在最首行
 
 现在有两个测试

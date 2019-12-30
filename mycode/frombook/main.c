@@ -41,11 +41,12 @@ int main(int argc, char *argv[])
      	ui.winMain = create_winMain(&ui);
 
         ui.window_login=create_logwindow(&ui);
-        ui.window_zc_1 = create_zc_window(&ui);
+        ui.window_login_with_phone = create_login_window_with_phone(&ui);
 	ui.diaMedialib = create_diaMedialib(&ui);
 	ui.diaPlaylist = create_diaPlaylist(&ui);
 	ui.diaVolume = create_diaVolume(&ui);
-	gtk_widget_show(ui.winMain);
+        //        gtk_widget_show(ui.window_login_with_phone);
+        gtk_widget_show(ui.winMain);
 	g_signal_connect(G_OBJECT(ui.winMain), "delete_event",
 			G_CALLBACK(gtk_main_quit), NULL);
 

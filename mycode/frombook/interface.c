@@ -286,16 +286,18 @@ GtkWidget *create_winMain (InterFace *ui)
    return winMain;
 }
 
-GtkWidget *create_zc_window(InterFace *ui) //使用手机号进行注册的页面
+GtkWidget *create_login_window_with_phone(InterFace *ui) //使用手机号进行登录的页
 {
-  GtkWidget *window_zc_1;// 注册之后的跳转窗口
-  window_zc_1=gtk_window_new(GTK_WINDOW_POPUP);
-  gtk_window_set_title(GTK_WINDOW(window_zc_1),"注册用户");
+  GtkWidget *window_login_with_phone;// 注册之后的跳转窗口
+  
+  window_login_with_phone=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title(GTK_WINDOW(window_login_with_phone),"使用手机号登录");
+  //  gtk_widget_show(window_login_with_phone);
   //  gtk_widget_show(window_zc_1);
      GtkWidget *vb_Main_zc_1;
      vb_Main_zc_1 = gtk_vbox_new (FALSE, 0);
      gtk_widget_show (vb_Main_zc_1);
-     gtk_container_add (GTK_CONTAINER (window_zc_1), vb_Main_zc_1);
+     gtk_container_add (GTK_CONTAINER (window_login_with_phone), vb_Main_zc_1);
 
 
          GtkWidget *entry = gtk_entry_new();						// 创建文本输入构件
@@ -310,11 +312,13 @@ GtkWidget *create_zc_window(InterFace *ui) //使用手机号进行注册的页�
 
          GtkWidget *entry_1 = gtk_entry_new();						// 创建文本输入构件
          gtk_widget_show(entry_1);
+         gtk_entry_set_text(GTK_ENTRY(entry_1), "请输入密码");
+         
          gtk_box_pack_start(GTK_CONTAINER(vb_Main_zc_1),entry_1,FALSE,FALSE,0);
          gtk_entry_set_max_length(GTK_ENTRY (entry_1), 50);
                                              // 设置文本输入构件接纳文本最大长度
 
-               gtk_entry_set_text(GTK_ENTRY(entry), "请输入密码");
+
 
 
               GtkWidget *vb_Main_zc_1_1;
@@ -325,27 +329,26 @@ GtkWidget *create_zc_window(InterFace *ui) //使用手机号进行注册的页�
 
          //复选框
 
-                    GtkWidget *radio_button=gtk_radio_button_new_with_mnemonic(NULL,"选项1");
+                    GtkWidget *radio_button=gtk_check_button_new_with_mnemonic("自动登录");
                     gtk_widget_show(radio_button);
                     gtk_box_pack_start(GTK_BOX(vb_Main_zc_1_1),radio_button,FALSE,FALSE,0);
 
 
                     
-                    GtkWidget *label_show_login_choose=gtk_label_new("自动登录");
-                    gtk_widget_show(label_show_login_choose);
-                    gtk_box_pack_start(GTK_BOX(vb_Main_zc_1_1),label_show_login_choose,FALSE,FALSE,0);
-                    
-              GtkWidget *button_home_zc_login=gtk_button_new_with_label("注册");
-              gtk_widget_show(button_home_zc_login);
-              gtk_box_pack_start(GTK_BOX(vb_Main_zc_1),button_home_zc_login,FALSE,FALSE,0);
-              gtk_widget_grab_default (window_zc_1);
+              GtkWidget *button_home_phone_login=gtk_button_new_with_label("登录");
+              gtk_widget_show(button_home_phone_login);
+              gtk_box_pack_start(GTK_BOX(vb_Main_zc_1),button_home_phone_login,FALSE,FALSE,0);
+              
 
              //信号的处理了
-                g_signal_connect ((gpointer) button_home_zc_login, "active",                        G_CALLBACK (on_cbbMode_active),
-                        ui);
+              
 
-             //             g_signal_connect(window_zc_1, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-             return window_zc_1;
+             g_signal_connect(window_login_with_phone, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+
+             gtk_widget_grab_default (window_login_with_phone);
+                
+                return window_login_with_phone;
 
                     
 }
@@ -393,21 +396,13 @@ GtkWidget *create_logwindow(InterFace *ui)
 
              gtk_container_add(GTK_CONTAINER(button_qq_login_2), qq_image);
              //button_login_2 的登录跳转
+             //button_login_from_phone登录
              g_signal_connect ((gpointer) button_zc_2, "active",
                         G_CALLBACK (on_button_zc_2_clicked),
                         ui);
-             g_signal_connect ((gpointer) button_login_from_phone, "active",
-                        G_CALLBACK (on_button_login_from_phone_clicked),
-                        ui);
-             //button_login_1 点击手机号注册
-             /*
-               原版本siga
-                            g_signal_connect ((gpointer) button_login_1, "active",
-                        G_CALLBACK (on_button_login_1_clicked),
-                        ui);
-             */
-
-             //window, "destroy", G_CALLBACK(gtk_main_quit), NULL
+             g_signal_connect ((gpointer) button_login_from_phone, "clicked",
+                               G_CALLBACK (on_button_login_from_phone_clicked),
+                     ui);
 
              g_signal_connect(window_login, "destroy", G_CALLBACK(gtk_main_quit), NULL);
              gtk_widget_grab_default (window_login);

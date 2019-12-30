@@ -15,12 +15,13 @@ void on_button_zc_2_clicked(GtkWidget *button_login,
 }
 //on_button_login_2_clicked  登录按键的处理
 //on_button_zc_from_phone_clicked :手机号注册
-
+//on_button_login_from_phone_clicked
 void on_button_login_from_phone_clicked(GtkWidget *button_zc_from_phone,
 		                   InterFace *ui)
 {
   
-  gtk_widget_show(ui->window_zc_1);
+
+    gtk_widget_show(ui->window_login_with_phone);
   //window_zc_1
   
   
@@ -29,7 +30,7 @@ void on_button_login_3_clicked(GtkWidget *button_login,
 		                   InterFace *ui)
 {
   //tod
-  gtk_widget_show(ui->window_zc_1);
+  //  gtk_widget_show(ui->window_zc_1);
   
 }
 
@@ -37,7 +38,7 @@ void on_button_login_3_clicked(GtkWidget *button_login,
 void button_home_zc_login(GtkWidget *button_login,
 		                   InterFace *ui)
 {
-  gtk_widget_show(ui->window_zc_1);
+  //gtk_widget_show(ui->window_zc_1);
 }
 //on_button_login_clicked的登录
 
@@ -60,7 +61,7 @@ void on_button_login_1_clicked(GtkWidget *button_login_1,
 {
   //		gtk_widget_show(ui->window_zc);
   
-  //  gtk_widget_show(ui->window_zc_1);
+  gtk_widget_hide(ui->window_login_with_phone);
 
   
 }

@@ -18,7 +18,6 @@ function run_gcc_and_demo(){
   #   gdb ./demo
   ./demo
 
-  show_table
 }
 
 
