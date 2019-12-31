@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 	main_core(GENERAL_PLAYLIST_INIT, &plink);
 	gtk_init(&argc, &argv);
 	InterFace ui;
+
      	ui.winMain = create_winMain(&ui);
 
         ui.window_login=create_logwindow(&ui);

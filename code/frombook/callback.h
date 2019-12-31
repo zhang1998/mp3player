@@ -5,7 +5,9 @@
 //void on_button_login_1_clicked(GtkWidget *button_login_1,
 void on_button_login_from_phone_clicked(GtkWidget *button_zc_from_phone,
                                         InterFace *ui);
-void on_button_login_1_clicked(GtkWidget *button_login_1,
+void on_button_home_phone_login_clicked(GtkWidget *button_login_1,
+                                        InterFace *ui);
+  void on_button_login_1_clicked(GtkWidget *button_login_1,
                                InterFace *ui);
 
 void on_button_login_3_clicked(GtkWidget *button_login,

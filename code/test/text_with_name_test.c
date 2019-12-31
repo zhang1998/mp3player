@@ -4,6 +4,8 @@ GtkWidget *entry;
 char *str[];
 
 void *on_click_button(GtkWidget *button,int ls){
+
+  //char *str[];   *str=gtk_entry_get_text(entry);
   *str=gtk_entry_get_text(entry);
    sqlite3 *db;
    char *zErrMsg = 0;
