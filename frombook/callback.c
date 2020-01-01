@@ -23,6 +23,7 @@ static int callback(void *data, int argc, char **argv, char **azColName){
 void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
                                        UserData *userdata)
 {
+  
 
   
   //  /*暂存数据修改的代码
