@@ -675,46 +675,11 @@ main_core.c:(.text+0x397)：对‘playlist_del_all’未定义的引用
 collect2: error: ld returned 1 exit status
 ./run.sh: 行 3: ./demo: 没有那个文件或目录
 
-** TODO 添加功能是
-*** TODO 添加登录功能
-**** DONE 有图形吗 有
-CLOSED: [2019-12-30 一 11:04]
+** DONE 添加功能1
+CLOSED: [2020-01-01 三 14:56]
 :LOGBOOK:
-- State "DONE"       from "TODO"       [2019-12-30 一 11:04]
+- State "DONE"       from "TODO"       [2020-01-01 三 14:56]
 :END:
-**** DONE 调用测试按键进行隐藏 可用 
-CLOSED: [2019-12-30 一 13:02]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2019-12-30 一 13:02]
-:END:
-在main_wndow下使用测试按键调用 成功
-**** DONE 按键+隐藏
-CLOSED: [2019-12-30 一 13:10]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2019-12-30 一 13:10]
-:END:
-**** DONE 从登录按键跳转到图形登录
-CLOSED: [2019-12-30 一 13:10]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2019-12-30 一 13:10]
-:END:
-**** DONE 实现可选的按钮
-CLOSED: [2019-12-30 一 13:33]
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2019-12-30 一 13:33]
-:END:
-**** TODO 登录的数据库
-***** TODO 表格的设计
-登录比对表
-|phone_number|qq_number|password|
-远程登录无法测试  直接从本地进行测试吧
-
-本地数据表
-|phone_number|qq_number|password|need_autologin|
-
-***** TODO 实现具体功能
-1. [ ] 获取text
-2. [ ] 并与数据库本地数据表内容进行比对
 
 *** CANCELLED 登录
 CLOSED: [2019-12-30 一 11:00]
@@ -999,22 +964,61 @@ CLOSED: [2019-12-28 六 21:06]
              gtk_container_add(GTK_CONTAINER(button_qq_login_2), qq_image);
 
 **** TODO 添加：
+** TODO 添加登录功能
+*** DONE 有图形吗 有
+CLOSED: [2019-12-30 一 11:04]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 11:04]
+:END:
+*** DONE 调用测试按键进行隐藏 可用 
+CLOSED: [2019-12-30 一 13:02]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:02]
+:END:
+在main_wndow下使用测试按键调用 成功
+*** DONE 按键+隐藏
+CLOSED: [2019-12-30 一 13:10]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:10]
+:END:
+*** DONE 从登录按键跳转到图形登录
+CLOSED: [2019-12-30 一 13:10]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:10]
+:END:
+*** DONE 实现可选的按钮
+CLOSED: [2019-12-30 一 13:33]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2019-12-30 一 13:33]
+:END:
+*** TODO 登录的数据库
+**** TODO 表格的设计
+登录比对表
+|phone_number|qq_number|password|
+远程登录无法测试  直接从本地进行测试吧
 
-*** TODO 有部分代码是注销了的 加上 
+本地数据表
+|phone_number|qq_number|password|need_autologin|
+
+**** TODO 实现具体功能
+1. [ ] 获取text
+2. [ ] 并与数据库本地数据表内容进行比对
+
+** TODO 有部分代码是注销了的 加上 
 : 直接搜索TODO
-*** TODO 2. [ ] 更加清晰 的页面导航 不断尝试不同方式
+** TODO 2. [ ] 更加清晰 的页面导航 不断尝试不同方式
    1. [ ] 思维导图：全部思维导图
    2. [ ] 引导 就像导游 逐步引入
-*** TODO 3. [ ] 阐述行业痛点，行业痛点不仅仅是罗列问题，更需要表现我们如何解决问题，点明我们在行业中的切入点。
-*** TODO 4. 如何更好的发掘音乐？
+** TODO 3. [ ] 阐述行业痛点，行业痛点不仅仅是罗列问题，更需要表现我们如何解决问题，点明我们在行业中的切入点。
+** TODO 4. 如何更好的发掘音乐？
    1. [ ] 文本+爬虫 分析 作者的相似度
    2. [ ] 音乐频率中发现有趣的东西
-*** TODO 优化登录界面
-*** TODO 5. 使用更加丰富的记录方法 解决用户 老是听到相同音乐的难点
+** TODO 优化登录界面
+** TODO 5. 使用更加丰富的记录方法 解决用户 老是听到相同音乐的难点
    1. [ ] 能够从歌单 电台 播放列表中 手动剥离 近期播放次数过多的音乐
-*** TODO 6. [ ] 节省空间
+** TODO 6. [ ] 节省空间
    1. 最小化的时候 允许 将 解码播放与wedget 分离开来
-*** TODO 7. 支持音乐创作
+** TODO 7. 支持音乐创作
    1. [ ] 当然现在只不过是增加了变速的功能罢了
    2. [ ] 使用混音  截取 创造自己完全不熟悉的音乐  提升g多样
 ** TODO 重构部分代码
