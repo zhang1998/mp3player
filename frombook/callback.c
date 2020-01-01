@@ -7,7 +7,11 @@
 #include "interface.h"
 #include "main_core.h"
 #include "medialib.h"
-
+void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
+                                       UserData *userdata)
+{
+  
+}
 void on_button_zc_2_clicked(GtkWidget *button_login,
 		                   InterFace *ui)
 {

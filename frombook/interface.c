@@ -338,13 +338,16 @@ GtkWidget *create_login_window_with_phone(InterFace *ui) //使用手机号进行
               GtkWidget *button_home_phone_login=gtk_button_new_with_label("登录");
               gtk_widget_show(button_home_phone_login);
               gtk_box_pack_start(GTK_BOX(vb_Main_zc_1),button_home_phone_login,FALSE,FALSE,0);
-              
-
-             //信号的处理了
+              //-----------------------获取控件的数据----------
+              UserData *user_data_from_entry;
+              *(user_data_from_entry->phone_number)=gtk_entry_get_text(entry);
+              *(user_data_from_entry->password)=gtk_entry_get_text(entry_1);
+             //-------------------------信号的处理了------------
               
 
              g_signal_connect(window_login_with_phone, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
+             g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),user_data_from_entry);
 
              gtk_widget_grab_default (window_login_with_phone);
                 

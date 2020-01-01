@@ -992,7 +992,11 @@ CLOSED: [2019-12-30 一 13:33]
 - State "DONE"       from "TODO"       [2019-12-30 一 13:33]
 :END:
 *** TODO 登录的数据库
-**** TODO 表格的设计
+**** DONE 表格的设计
+CLOSED: [2020-01-01 三 15:03]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-01-01 三 15:03]
+:END:
 登录比对表
 |phone_number|qq_number|password|
 远程登录无法测试  直接从本地进行测试吧
@@ -1000,9 +1004,17 @@ CLOSED: [2019-12-30 一 13:33]
 本地数据表
 |phone_number|qq_number|password|need_autologin|
 
+|phone_number  |qq_number|password|need_autologin|
+CREATE TABLE test2(phone_number text,qq_number text,password text,need_autologin int)
 **** TODO 实现具体功能
 1. [ ] 获取text
 2. [ ] 并与数据库本地数据表内容进行比对
+**** TODO 测试一下两个             g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),user_data_from_entry);
+
+1. g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),*user_data_from_entry);
+2. g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),user_data_from_entry);
+3. 
+
 
 ** TODO 有部分代码是注销了的 加上 
 : 直接搜索TODO

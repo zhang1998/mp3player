@@ -4,6 +4,16 @@
 
 #ifndef INTERFACE_H_
 #define INTERFACE_H_
+#define USERDATA_SIZE 144
+typedef struct _userdata UserData;
+struct _userdata {
+  char phone_number[USERDATA_SIZE];
+  char password[USERDATA_SIZE];
+  char qq_number[USERDATA_SIZE];
+  int need_autologin;
+};
+
+
 typedef struct _interface InterFace;
 struct _interface {
 	GtkWidget *winMain;
