@@ -1,6 +1,7 @@
 ﻿#include <gtk-2.0/gtk/gtk.h>
 #include <glib-2.0/glib.h>
 #include <string.h>
+#include <sqlite3.h>
 #include <gtk-2.0/gtk/gtkstock.h>
 #include <gtk-2.0/gtk/gtktypeutils.h>
 #include "callback.h"
@@ -10,7 +11,44 @@
 void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
                                        UserData *userdata)
 {
-  
+   const char *dbfile = "phone_login.db";							// 定义数据库文件名
+   int res;
+   char *errmsg = NULL;
+   char **result;										// 用于保存查询结果
+   int row, col;
+   sqlite3 **db;// 用于保存行和列
+   int i;
+   res = open_database(dbfile);							// 打开数据库
+   if (res != 0) {
+      printf("数据库打开失败：%s", sqlite3_errmsg(db));
+      return 1;
+   }
+   else
+      puts("数据库已打开");
+   const char *sqlcmd = "SELECT * FROM test2";			// 定义SQL查询字符串
+   res = sqlite3_get_table(db, sqlcmd, &result, row, col, &errmsg);	// 执行SQL命令
+   if (res != SQLITE_OK )
+      printf("查询失败，代码：%d-%s\n", res, errmsg);
+   else if (row < 2)										// 判断查询到的实际记录数是否为0
+      puts("查询结果为0条");
+   else {
+      puts("查询成功，查询结果为：");
+      UserData *cl = malloc(sizeof(UserData) * row - 1);				// 为保存结果的结构体动态分配内存
+      UserData *p_cl;										// 定义一个callist类型指针
+      p_cl = cl;
+      printf("%s",*p_cl);
+      sqlite3_free_table(result);							// 释放结果所占用的内存空间
+      //printdb(cl, row -1);									// 输出结果
+      free(cl);
+   }
+   res = close_database();
+   if (res != 0) {
+      printf("数据库关闭失败：%s", sqlite3_errmsg(db));
+      return 1;
+   }
+   else
+      puts("数据库已关闭");
+   return 0;
 }
 void on_button_zc_2_clicked(GtkWidget *button_login,
 		                   InterFace *ui)

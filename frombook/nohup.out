@@ -1,0 +1,239 @@
+callback.c: In function ‘on_button_home_phone_login_clicked’:
+callback.c:21:10: warning: implicit declaration of function ‘open_database’ [-Wimplicit-function-declaration]
+    res = open_database(dbfile);       // 打开数据库
+          ^~~~~~~~~~~~~
+callback.c:23:59: warning: passing argument 1 of ‘sqlite3_errmsg’ from incompatible pointer type [-Wincompatible-pointer-types]
+       printf("数据库打开失败：%s", sqlite3_errmsg(db));
+                                                           ^~
+In file included from callback.c:4:0:
+/usr/include/sqlite3.h:3405:24: note: expected ‘sqlite3 * {aka struct sqlite3 *}’ but argument is of type ‘sqlite3 ** {aka struct sqlite3 **}’
+ SQLITE_API const char *sqlite3_errmsg(sqlite3*);
+                        ^~~~~~~~~~~~~~
+callback.c:24:14: warning: ‘return’ with a value, in function returning void
+       return 1;
+              ^
+callback.c:11:6: note: declared here
+ void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+callback.c:29:28: warning: passing argument 1 of ‘sqlite3_get_table’ from incompatible pointer type [-Wincompatible-pointer-types]
+    res = sqlite3_get_table(db, sqlcmd, &result, row, col, &errmsg); // 执行SQL命令
+                            ^~
+In file included from callback.c:4:0:
+/usr/include/sqlite3.h:2484:16: note: expected ‘sqlite3 * {aka struct sqlite3 *}’ but argument is of type ‘sqlite3 ** {aka struct sqlite3 **}’
+ SQLITE_API int sqlite3_get_table(
+                ^~~~~~~~~~~~~~~~~
+callback.c:29:49: warning: passing argument 4 of ‘sqlite3_get_table’ makes pointer from integer without a cast [-Wint-conversion]
+    res = sqlite3_get_table(db, sqlcmd, &result, row, col, &errmsg); // 执行SQL命令
+                                                 ^~~
+In file included from callback.c:4:0:
+/usr/include/sqlite3.h:2484:16: note: expected ‘int *’ but argument is of type ‘int’
+ SQLITE_API int sqlite3_get_table(
+                ^~~~~~~~~~~~~~~~~
+callback.c:29:54: warning: passing argument 5 of ‘sqlite3_get_table’ makes pointer from integer without a cast [-Wint-conversion]
+    res = sqlite3_get_table(db, sqlcmd, &result, row, col, &errmsg); // 执行SQL命令
+                                                      ^~~
+In file included from callback.c:4:0:
+/usr/include/sqlite3.h:2484:16: note: expected ‘int *’ but argument is of type ‘int’
+ SQLITE_API int sqlite3_get_table(
+                ^~~~~~~~~~~~~~~~~
+callback.c:39:16: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘UserData {aka struct _userdata}’ [-Wformat=]
+       printf("%s",*p_cl);
+               ~^  ~~~~~
+callback.c:44:10: warning: implicit declaration of function ‘close_database’ [-Wimplicit-function-declaration]
+    res = close_database();
+          ^~~~~~~~~~~~~~
+callback.c:46:59: warning: passing argument 1 of ‘sqlite3_errmsg’ from incompatible pointer type [-Wincompatible-pointer-types]
+       printf("数据库关闭失败：%s", sqlite3_errmsg(db));
+                                                           ^~
+In file included from callback.c:4:0:
+/usr/include/sqlite3.h:3405:24: note: expected ‘sqlite3 * {aka struct sqlite3 *}’ but argument is of type ‘sqlite3 ** {aka struct sqlite3 **}’
+ SQLITE_API const char *sqlite3_errmsg(sqlite3*);
+                        ^~~~~~~~~~~~~~
+callback.c:47:14: warning: ‘return’ with a value, in function returning void
+       return 1;
+              ^
+callback.c:11:6: note: declared here
+ void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+callback.c:51:11: warning: ‘return’ with a value, in function returning void
+    return 0;
+           ^
+callback.c:11:6: note: declared here
+ void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+db.c: In function ‘medialib_insert’:
+db.c:165:15: warning: ‘%s’ directive writing up to 4095 bytes into a region of size between 3832 and 5630 [-Wformat-overflow=]
+               "UPDATE medialib SET title = \"%s\",\
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                     artist = \"%s\",\
+                                     ~~~~~~~~~~~~~~~~~
+                                     album = \"%s\",\
+                                     ~~~~~~~~~~~~~~~~
+                                     genre = \"%s\",\
+                                     ~~~~~~~~~~~~~~~~
+                                     record_time = %d \
+                                     ~~~~~~~~~~~~~~~~~~
+                WHERE filepath = \"%s\"",
+                ~~~~~~~~~~~~~~~~~~~~~~~~
+db.c:164:7: note: ‘sprintf’ output between 260 and 6153 bytes into a destination of size 5888
+       sprintf(sqlcmd,
+       ^~~~~~~~~~~~~~~
+               "UPDATE medialib SET title = \"%s\",\
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                     artist = \"%s\",\
+                                     ~~~~~~~~~~~~~~~~~
+                                     album = \"%s\",\
+                                     ~~~~~~~~~~~~~~~~
+                                     genre = \"%s\",\
+                                     ~~~~~~~~~~~~~~~~
+                                     record_time = %d \
+                                     ~~~~~~~~~~~~~~~~~~
+                WHERE filepath = \"%s\"",
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+                mnode->item.title,
+                ~~~~~~~~~~~~~~~~~~
+                mnode->item.atrist,
+                ~~~~~~~~~~~~~~~~~~~
+                mnode->item.album,
+                ~~~~~~~~~~~~~~~~~~
+                mnode->item.genre,
+                ~~~~~~~~~~~~~~~~~~
+                (int) mnode->item.record_time,
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                mnode->item.filepath);  // 生成UPDATE语句
+                ~~~~~~~~~~~~~~~~~~~~~
+db.c:180:15: warning: ‘%s’ directive writing up to 4095 bytes into a region of size between 4027 and 5825 [-Wformat-overflow=]
+               "INSERT INTO medialib VALUES \
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               (\"%s\", \"%s\", \"%s\", \"%s\", %d, \"%s\")",
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+db.c:179:7: note: ‘sprintf’ output between 66 and 5959 bytes into a destination of size 5888
+       sprintf(sqlcmd,
+       ^~~~~~~~~~~~~~~
+               "INSERT INTO medialib VALUES \
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               (\"%s\", \"%s\", \"%s\", \"%s\", %d, \"%s\")",
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               mnode->item.title,
+               ~~~~~~~~~~~~~~~~~~
+               mnode->item.atrist,
+               ~~~~~~~~~~~~~~~~~~~
+               mnode->item.album,
+               ~~~~~~~~~~~~~~~~~~
+               mnode->item.genre,
+               ~~~~~~~~~~~~~~~~~~
+               (int) mnode->item.record_time,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+               mnode->item.filepath);    // 生成INSERT语句
+               ~~~~~~~~~~~~~~~~~~~~~
+interface.c: In function ‘create_login_window_with_phone’:
+interface.c:305:29: warning: passing argument 1 of ‘gtk_box_pack_start’ from incompatible pointer type [-Wincompatible-pointer-types]
+          gtk_box_pack_start(GTK_CONTAINER(vb_Main_zc_1),entry,FALSE,FALSE,0);
+                             ^~~~~~~~~~~~~
+In file included from /usr/include/gtk-2.0/gtk/gtkbbox.h:34:0,
+                 from /usr/include/gtk-2.0/gtk/gtk.h:46,
+                 from interface.c:1:
+/usr/include/gtk-2.0/gtk/gtkbox.h:109:13: note: expected ‘GtkBox * {aka struct _GtkBox *}’ but argument is of type ‘GtkContainer * {aka struct _GtkContainer *}’
+ void        gtk_box_pack_start          (GtkBox         *box,
+             ^~~~~~~~~~~~~~~~~~
+interface.c:317:29: warning: passing argument 1 of ‘gtk_box_pack_start’ from incompatible pointer type [-Wincompatible-pointer-types]
+          gtk_box_pack_start(GTK_CONTAINER(vb_Main_zc_1),entry_1,FALSE,FALSE,0);
+                             ^~~~~~~~~~~~~
+In file included from /usr/include/gtk-2.0/gtk/gtkbbox.h:34:0,
+                 from /usr/include/gtk-2.0/gtk/gtk.h:46,
+                 from interface.c:1:
+/usr/include/gtk-2.0/gtk/gtkbox.h:109:13: note: expected ‘GtkBox * {aka struct _GtkBox *}’ but argument is of type ‘GtkContainer * {aka struct _GtkContainer *}’
+ void        gtk_box_pack_start          (GtkBox         *box,
+             ^~~~~~~~~~~~~~~~~~
+interface.c:343:72: warning: passing argument 1 of ‘gtk_entry_get_text’ from incompatible pointer type [-Wincompatible-pointer-types]
+               *(user_data_from_entry->phone_number)=gtk_entry_get_text(entry);
+                                                                        ^~~~~
+In file included from /usr/include/gtk-2.0/gtk/gtktreeview.h:31:0,
+                 from /usr/include/gtk-2.0/gtk/gtkcombobox.h:29,
+                 from /usr/include/gtk-2.0/gtk/gtk.h:72,
+                 from interface.c:1:
+/usr/include/gtk-2.0/gtk/gtkentry.h:216:14: note: expected ‘GtkEntry * {aka struct _GtkEntry *}’ but argument is of type ‘GtkWidget * {aka struct _GtkWidget *}’
+ const gchar* gtk_entry_get_text                 (GtkEntry      *entry);
+              ^~~~~~~~~~~~~~~~~~
+interface.c:343:52: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+               *(user_data_from_entry->phone_number)=gtk_entry_get_text(entry);
+                                                    ^
+interface.c:344:68: warning: passing argument 1 of ‘gtk_entry_get_text’ from incompatible pointer type [-Wincompatible-pointer-types]
+               *(user_data_from_entry->password)=gtk_entry_get_text(entry_1);
+                                                                    ^~~~~~~
+In file included from /usr/include/gtk-2.0/gtk/gtktreeview.h:31:0,
+                 from /usr/include/gtk-2.0/gtk/gtkcombobox.h:29,
+                 from /usr/include/gtk-2.0/gtk/gtk.h:72,
+                 from interface.c:1:
+/usr/include/gtk-2.0/gtk/gtkentry.h:216:14: note: expected ‘GtkEntry * {aka struct _GtkEntry *}’ but argument is of type ‘GtkWidget * {aka struct _GtkWidget *}’
+ const gchar* gtk_entry_get_text                 (GtkEntry      *entry);
+              ^~~~~~~~~~~~~~~~~~
+interface.c:344:48: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+               *(user_data_from_entry->password)=gtk_entry_get_text(entry_1);
+                                                ^
+interface.c: In function ‘create_logwindow’:
+interface.c:397:38: warning: passing argument 1 of ‘gtk_image_set_from_file’ from incompatible pointer type [-Wincompatible-pointer-types]
+              gtk_image_set_from_file(qq_image,"./image/stand_pixel_four.jpg");
+                                      ^~~~~~~~
+In file included from /usr/include/gtk-2.0/gtk/gtkbutton.h:36:0,
+                 from /usr/include/gtk-2.0/gtk/gtk.h:52,
+                 from interface.c:1:
+/usr/include/gtk-2.0/gtk/gtkimage.h:216:6: note: expected ‘GtkImage * {aka struct _GtkImage *}’ but argument is of type ‘GtkWidget * {aka struct _GtkWidget *}’
+ void gtk_image_set_from_file      (GtkImage        *image,
+      ^~~~~~~~~~~~~~~~~~~~~~~
+interface.c: In function ‘create_diaMedialib’:
+interface.c:531:16: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+    dialog_vbox4=G_TYPE_CHECK_INSTANCE_CAST((diaMedialib), GTK_TYPE_DIALOG, GtkDialog);
+                ^
+
+(demo:14067): GLib-GObject-WARNING **: 15:42:34.576: ../../../../gobject/gsignal.c:2523: signal 'active' is invalid for instance '0x5564c17330f0' of type 'GtkComboBox'
+
+(demo:14067): GLib-GObject-WARNING **: 15:42:34.580: ../../../../gobject/gsignal.c:2523: signal 'active' is invalid for instance '0x5564c17b8930' of type 'GtkButton'
+
+(demo:14067): Gtk-CRITICAL **: 15:42:34.580: IA__gtk_widget_grab_default: assertion 'gtk_widget_get_can_default (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:34.581: IA__gtk_widget_grab_default: assertion 'gtk_widget_get_can_default (widget)' failed
+
+(demo:14067): GLib-GObject-WARNING **: 15:42:34.582: invalid cast from 'GtkDialog' to 'GtkBox'
+
+(demo:14067): Gtk-CRITICAL **: 15:42:34.582: gtk_box_pack: assertion 'GTK_IS_BOX (box)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.860: IA__gtk_widget_get_visible: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.860: IA__gtk_widget_get_visible: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.860: IA__gtk_widget_get_visible: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.862: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.868: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.868: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.868: IA__gtk_container_propagate_expose: assertion 'GTK_IS_WIDGET (child)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.886: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.887: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.888: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:36.888: IA__gtk_container_propagate_expose: assertion 'GTK_IS_WIDGET (child)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:37.667: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:37.669: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:37.891: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:37.893: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:37.982: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:37.983: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:38.003: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+
+(demo:14067): Gtk-CRITICAL **: 15:42:38.004: IA__gtk_widget_get_mapped: assertion 'GTK_IS_WIDGET (widget)' failed
+创建数据表失败：1-table 'medialib' already exists
+数据库打开失败：out of memory数据库打开失败：out of memory数据库打开失败：out of memory数据库打开失败：out of memory数据库打开失败：out of memory数据库打开失败：out of memory
