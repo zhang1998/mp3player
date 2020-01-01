@@ -4,6 +4,17 @@
 
 #ifndef INTERFACE_H_
 #define INTERFACE_H_
+typedef struct _userdata UserData;
+struct _userdata{
+  char *phone_number=[];
+  char *qq_number=[];
+  char *password=[];
+  int *need_autologin=0;
+  /*need_autologin 的值
+    0:不需要
+    1:需要
+   */
+}
 typedef struct _interface InterFace;
 struct _interface {
 	GtkWidget *winMain;

@@ -53,9 +53,53 @@ void on_button_login_clicked(GtkWidget *button_login,
   
 
 }
+//
+void on_button_home_phone_login_clicked(GtkWidget *button_login_1,
+		                   UserData *userdata)
+{
+     sqlite3 *db;
+   char *zErrMsg = 0;
+   char *sql;
+  int rc;
+     rc = sqlite3_open("phone_login.db", &db);
+
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      exit(0);
+   }else{
+      fprintf(stderr, "Opened database successfully\n");
+   }
+   /*
+     struct _userdata{
+  char *phone_number=[];
+  char *qq_number=[];
+  char *password=[];
+  int *need_autologin=0;
+
+    */
+   //查询相关表
+   *sql=sqlite_mprintf("SELECT * FROM test2 where phone_number=%s",userdata->phone_number);
+   
+     //对比相关表
+   rc=sqlite3_get_table(db,sql,&result,row,col,&errmsg);
+
+   if(res!=SQLITE_OK)
+     printf("查询失败，代码:%d-%s\n",res,errmsg);
+   else if (row<2)
+     puts("查询结果为零条");
+   else{
+     puts("查询成功，查询结果为");
+     UserData *get_User_data=malloc
+   }
+   
+
+   
+
+}
 //注册
 //  
 //
+
 void on_button_login_1_clicked(GtkWidget *button_login_1,
 		                   InterFace *ui)
 {

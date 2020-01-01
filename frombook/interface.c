@@ -287,7 +287,12 @@ GtkWidget *create_winMain (InterFace *ui)
 }
 
 GtkWidget *create_login_window_with_phone(InterFace *ui) //使用手机号进行登录的页
-{
+{         UserData uerdata;
+
+  userdata->phone_number=gtk_entry_get_text(entry);
+
+  userdata->password=gtk_entry_get_text(entry_1);
+  
   GtkWidget *window_login_with_phone;// 注册之后的跳转窗口
   
   window_login_with_phone=gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -344,8 +349,8 @@ GtkWidget *create_login_window_with_phone(InterFace *ui) //使用手机号进行
               
 
              g_signal_connect(window_login_with_phone, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
-
+             //button_home_phone_login: 实现注册页面的跳转
+             g_signal_connect(button_home_phone_login,"clicked", G_CALLBACK(on_button_home_phone_login_clicked), &uerdata);
              gtk_widget_grab_default (window_login_with_phone);
                 
                 return window_login_with_phone;
