@@ -24,11 +24,16 @@ void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
                                        UserData *userdata)
 {
   
+  //测试获取控件的内容
 
+              //char str44[144];
+              //              *str44==gtk_entry_get_text(entry);
+
+             
   
   //  /*暂存数据修改的代码
 
-
+   
    sqlite3 *db;
    char *zErrMsg = 0;
    int rc;
@@ -45,10 +50,12 @@ void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
    }
 
    /* Create merged SQL statement */
-   sql = "SELECT * from test1";
+   //sql = "SELECT * from test1 ";
+   sql= sqlite3_mprintf("select password FROM test2 WHERE phone_number = '%s'; ",userdata->phone_number);
 
    /* Execute SQL statement */
    rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+   printf("%s",userdata->phone_number);
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);

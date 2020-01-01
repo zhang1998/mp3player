@@ -4,6 +4,7 @@
 #include "interface.h"
 #include "callback.h"
 
+     
 GtkWidget *create_winMain (InterFace *ui)
 {
 	GtkAccelGroup *accel_group;
@@ -310,7 +311,7 @@ GtkWidget *create_login_window_with_phone(InterFace *ui) //使用手机号进行
          // 修改文本输入构件中的文本
 
 
-         GtkWidget *entry_1 = gtk_entry_new();						// 创建文本输入构件
+    GtkWidget *entry_1 = gtk_entry_new();						// 创建文本输入构件
          gtk_widget_show(entry_1);
          gtk_entry_set_text(GTK_ENTRY(entry_1), "请输入密码");
          
@@ -339,15 +340,19 @@ GtkWidget *create_login_window_with_phone(InterFace *ui) //使用手机号进行
               gtk_widget_show(button_home_phone_login);
               gtk_box_pack_start(GTK_BOX(vb_Main_zc_1),button_home_phone_login,FALSE,FALSE,0);
               //-----------------------获取控件的数据----------
-              UserData *user_data_from_entry;
+                              UserData *user_data_from_entry;
               *(user_data_from_entry->phone_number)=gtk_entry_get_text(entry);
+              //              printf("数据为%s",*str44);
+              printf("数据为");
+   printf("%s",user_data_from_entry->phone_number);
+                
               *(user_data_from_entry->password)=gtk_entry_get_text(entry_1);
              //-------------------------信号的处理了------------
               
 
              g_signal_connect(window_login_with_phone, "destroy", G_CALLBACK(gtk_main_quit), NULL);
              //button_home_phone_login
-                  g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),user_data_from_entry);
+             g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),user_data_from_entry);
              //  g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(gtk_main_quit),user_data_from_entry);
 
              gtk_widget_grab_default (window_login_with_phone);
