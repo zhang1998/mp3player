@@ -8,47 +8,56 @@
 #include "interface.h"
 #include "main_core.h"
 #include "medialib.h"
+
+static int callback(void *data, int argc, char **argv, char **azColName){
+   int i;
+   fprintf(stderr, "%s: ", (const char*)data);
+   for(i=0; i<argc; i++){
+      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+   }
+   printf("\n");
+   return 0;
+}
+
+
 void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
                                        UserData *userdata)
 {
-   const char *dbfile = "phone_login.db";							// 定义数据库文件名
-   int res;
-   char *errmsg = NULL;
-   char **result;										// 用于保存查询结果
-   int row, col;
-   sqlite3 **db;// 用于保存行和列
-   int i;
-   res = open_database(dbfile);							// 打开数据库
-   if (res != 0) {
-      printf("数据库打开失败：%s", sqlite3_errmsg(db));
-      return 1;
+
+  
+  //  /*暂存数据修改的代码
+
+
+   sqlite3 *db;
+   char *zErrMsg = 0;
+   int rc;
+   char *sql;
+   const char* data = "Callback function called";
+
+   /* Open database */
+   rc = sqlite3_open("phone_login.db", &db);
+   if( rc ){
+      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+      exit(0);
+   }else{
+      fprintf(stderr, "Opened database successfully\n");
    }
-   else
-      puts("数据库已打开");
-   const char *sqlcmd = "SELECT * FROM test2";			// 定义SQL查询字符串
-   res = sqlite3_get_table(db, sqlcmd, &result, row, col, &errmsg);	// 执行SQL命令
-   if (res != SQLITE_OK )
-      printf("查询失败，代码：%d-%s\n", res, errmsg);
-   else if (row < 2)										// 判断查询到的实际记录数是否为0
-      puts("查询结果为0条");
-   else {
-      puts("查询成功，查询结果为：");
-      UserData *cl = malloc(sizeof(UserData) * row - 1);				// 为保存结果的结构体动态分配内存
-      UserData *p_cl;										// 定义一个callist类型指针
-      p_cl = cl;
-      printf("%s",*p_cl);
-      sqlite3_free_table(result);							// 释放结果所占用的内存空间
-      //printdb(cl, row -1);									// 输出结果
-      free(cl);
+
+   /* Create merged SQL statement */
+   sql = "SELECT * from test1";
+
+   /* Execute SQL statement */
+   rc = sqlite3_exec(db, sql, callback, (void*)data, &zErrMsg);
+   if( rc != SQLITE_OK ){
+      fprintf(stderr, "SQL error: %s\n", zErrMsg);
+      sqlite3_free(zErrMsg);
+   }else{
+      fprintf(stdout, "Operation done successfully\n");
    }
-   res = close_database();
-   if (res != 0) {
-      printf("数据库关闭失败：%s", sqlite3_errmsg(db));
-      return 1;
-   }
-   else
-      puts("数据库已关闭");
+   sqlite3_close(db);
    return 0;
+
+ return 0;
 }
 void on_button_zc_2_clicked(GtkWidget *button_login,
 		                   InterFace *ui)

@@ -346,8 +346,9 @@ GtkWidget *create_login_window_with_phone(InterFace *ui) //使用手机号进行
               
 
              g_signal_connect(window_login_with_phone, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
-             g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),user_data_from_entry);
+             //button_home_phone_login
+                  g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(on_button_home_phone_login_clicked),user_data_from_entry);
+             //  g_signal_connect(button_home_phone_login,"clicked",G_CALLBACK(gtk_main_quit),user_data_from_entry);
 
              gtk_widget_grab_default (window_login_with_phone);
                 

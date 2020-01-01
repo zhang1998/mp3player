@@ -1006,6 +1006,25 @@ CLOSED: [2020-01-01 三 15:03]
 
 |phone_number  |qq_number|password|need_autologin|
 CREATE TABLE test2(phone_number text,qq_number text,password text,need_autologin int)
+**** DONE 处理报错
+CLOSED: [2020-01-01 三 18:11]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-01-01 三 18:11]
+:END:
+数据库打开失败：out of memory数据库打开失败：out of memory数据库打开失败：out of memory
+***** TODO 百度 
+***** USEFULL 从新抄代码 自己写的根本就不安全
+CLOSED: [2020-01-01 三 18:10]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-01-01 三 18:10] \\
+  从c代码文件夹抄袭了一部分代码之后能运行了
+  以后还是要抄 自己写的总是出现各种问题
+:END:
+***** TODO 查看表
+关于该错误，需要有以下几个注意的点，认真检查，便可解决：
+1. [X] 该路径下有没有相关的数据库，或者该表
+2. [X] 确认该路径下有表存在，仔细检查调用的路径字符串的拼写是否错误
+3. [ ] 查看数据库的权限，是否为可读可写
 **** TODO 实现具体功能
 1. [ ] 获取text
 2. [ ] 并与数据库本地数据表内容进行比对

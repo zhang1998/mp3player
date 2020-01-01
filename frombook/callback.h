@@ -9,6 +9,7 @@ void on_button_login_1_clicked(GtkWidget *button_login_1,
                                InterFace *ui);
 void on_button_home_phone_login_clicked(GtkWidget *button_home_phone_login,
                                         UserData *userdata);
+
 void on_button_login_3_clicked(GtkWidget *button_login,
                                InterFace *ui);
 void on_button_zc_2_clicked(GtkWidget *button_login,
